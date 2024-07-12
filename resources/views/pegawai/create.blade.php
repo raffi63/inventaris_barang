@@ -48,6 +48,14 @@ placeholder="NIP" name="nip" value="{{ old('nip') }}">
 <option value="operational" @if(old('divisi') == 'operational')selected @endif>Operational</option>
 </select> 
 @error('divisi') <span class="text-danger">{{ $message }}</span> @enderror
+</div>
+<div class="form-group"> 
+<label for="exampleInputstatus">status</label> 
+<select class="form-control @error('status') is-invalid @enderror" id="exampleInputstatus" name="status"> 
+<option value="inactive" @if(old('status') == 'inactive')selected @endif>Inactive</option> 
+<option value="active" @if(old('status') == 'active')selected @endif>Active</option>
+</select> 
+@error('status') <span class="text-danger">{{ $message }}</span> @enderror
 </div> 
 </div> 
 <div class="card-footer"> 

@@ -85,7 +85,7 @@ return new class extends Migration
         END');
 
         DB::unprepared('
-        CREATE TRIGGER update_status_ready BEFORE UPDATE ON `barangmasuk` FOR EACH ROW
+        CREATE TRIGGER update_status_ready AFTER INSERT ON `barangmasuk` FOR EACH ROW
         BEGIN
         update barangkeluar
         set statuskeluar = New.statusmasuk

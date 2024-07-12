@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pegawai', function (Blueprint $table) {
             $table->id();
             $table->string('namapegawai', 255);
-            $table->string('nip', 255)->unique;
+            $table->string('nip', 255)->unique();
             $table->enum('jabatan', ['ceo','director','securityanalyst','reporting','ssm','hr','financeaccounting','operational','salesmarketing']);
             $table->enum('divisi',['all','tehnikal','training','finance','hr','operational']);
             $table->timestamps();

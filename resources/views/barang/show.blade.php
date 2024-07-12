@@ -17,6 +17,19 @@
 <p class="form-control" id="exampleInputnamabarang">{{ $barang->namabarang }}</p>
 </div>
 <div class="form-group">
+    <label for="exampleInputnamapegawai">Nama Pegawai</label>
+    <div class="form-control" id="exampleInputnamapegawai" style="height: auto;">
+        <ul class="list-unstyled mb-0">
+            @forelse($barang->barangkeluar as $keluar)
+                <li>- <b>{{ $keluar->pegawai->namapegawai }}</b> <br>Pada tanggal {{ $keluar->tanggal }}</li>
+            @empty
+                <li>No related Barangkeluar records found.</li>
+            @endforelse
+        </ul>
+    </div>
+</div>
+
+<div class="form-group">
 <label for="exampleInputDeskripsi">Deskripsi</label>
 <p class="form-control" id="exampleInputDeskripsi">{{ $barang->deskripsi }}</p>
 </div>

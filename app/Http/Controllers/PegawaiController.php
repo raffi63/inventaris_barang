@@ -36,6 +36,7 @@ class PegawaiController extends Controller
             'nip' => 'required|unique:pegawai,nip',
             'jabatan' => 'required|in:ceo,director,securityanalyst,reporting,ssm,hr,financeaccounting,operational,salesmarketing',
             'divisi' => 'required|in:all,tehnikal,training,finance,hr,operational',
+            'status' => 'required|in:inactive,active',
         ]);
 
         $pegawai = Pegawai::create($request->all());
@@ -81,6 +82,7 @@ class PegawaiController extends Controller
             'nip' => 'required|unique:pegawai,nip,' . $id,
             'jabatan' => 'required|in:ceo,director,securityanalyst,reporting,ssm,hr,financeaccounting,operational,salesmarketing',
             'divisi' => 'required|in:all,tehnikal,training,finance,hr,operational',
+            'status' => 'required|in:inactive,active',
         ]);
 
         $pegawai = Pegawai::find($id);

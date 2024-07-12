@@ -30,7 +30,7 @@ Tambah
 <td>{{ $key + 1 }}</td>
 <td>{{ $item->id }}</td>
 <td>{{ $item->idbarang }}</td>
-<td>{{ $item->idpegawai }}</td>
+<td>{{ $item->pegawai->namapegawai }}</td>
 <td>{{ $item->statuskeluar }}</td>
 <td>{{ $item->jumlahkeluar }}</td>
 <td>{{ $item->tanggal }}</td>

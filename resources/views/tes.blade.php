@@ -32,7 +32,6 @@ View
 <th>Ruang</th>
 <th>Status</th>
 <th>Jenis Barang</th>
-<th>Opsi</th>
 </tr>
 </thead>
 <tbody>
@@ -46,11 +45,6 @@ View
             <td>{{ $barangs->ruang }}</td>
             <td>{{ $barangs->status }}</td>
             <td>{{$barangs->jenisbarang}}</td>
-            <td>
-                <a href="{{ route('barang.edit', $barangs->id) }}" class="btn btn-primary btn-xs">Edit</a>
-                <a href="{{ route('barang.destroy', $barangs->id) }}" onclick="notificationBeforeDelete(event, this)" class="btn btn-danger btn-xs">Delete</a>
-                <a href="{{ route('barang.show', $barangs->id) }}" class="btn btn-info btn-xs">Show</a>
-            </td>
         </tr>
     @endforeach
 @else

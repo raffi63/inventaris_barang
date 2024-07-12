@@ -27,7 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $jp = Pegawai::count();
+        $jp = Pegawai::where('status', 'active')->count();
 
         // Total Barang
         $tb = DB::table('barang')->sum('jumlahbarang');

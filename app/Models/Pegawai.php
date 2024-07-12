@@ -13,6 +13,7 @@ class Pegawai extends Model
         'namapegawai',
         'nip',
         'jabatan',
-        'divisi'
+        'divisi',
+        'status'
     ];
 }

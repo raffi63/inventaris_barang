@@ -294,8 +294,7 @@ return [
         [ 
             'text' => 'Dashboard', 
             'url' => '/home', 
-            'icon' => 'fas fa-chart-line',
-            'can' => 'admin-only' 
+            'icon' => 'fas fa-chart-line' 
         ],
         [ 
             'text' => 'User', 
@@ -306,8 +305,7 @@ return [
         [ 
             'text' => 'Master Barang', 
             'url' => '/barang', 
-            'icon' => 'fas fa-laptop', 
-            'can' => 'admin-only' 
+            'icon' => 'fas fa-laptop'
         ],
         [ 
             'text' => 'Pegawai', 
@@ -336,8 +334,7 @@ return [
         [ 
             'text' => 'Laporan', 
             'url' => '/report', 
-            'icon' => 'fas fa-flag',
-            'can' => 'admin-only'  
+            'icon' => 'fas fa-flag'  
         ],
         // [
         //     'type'         => 'navbar-search',

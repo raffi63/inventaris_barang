@@ -17,6 +17,7 @@
 <th>NIP</th>
 <th>Jabatan</th>
 <th>Divisi</th>
+<th>Status</th>
 <th>Opsi</th>
 </tr>
 </thead>
@@ -28,6 +29,7 @@
 <td>{{ $pegawai->nip }}</td>
 <td>{{ ucfirst($pegawai->jabatan) }}</td>
 <td>{{ ucfirst($pegawai->divisi) }}</td>
+<td>{{  $pegawai->status  }}</td>
 <td>
 <a href="{{ route('pegawai.edit', $pegawai->id) }}"
 class="btn btn-primary btn-xs">Edit</a>

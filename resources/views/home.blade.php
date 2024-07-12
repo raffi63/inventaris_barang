@@ -11,7 +11,7 @@
 <div class="info-box">
 <span class="info-box-icon bg-info elevation-1"><img src="assets/employee.png" alt="Icon"></span>
 <div class="info-box-content">
-<span class="info-box-text">Jumlah Pegawai</span>
+<span class="info-box-text">Jumlah Pegawai Aktif</span>
 <span class="info-box-number">{{$jp}}
 </span>
 </div>

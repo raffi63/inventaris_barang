@@ -25,4 +25,9 @@ class Barang extends Model
     ];
     protected $keyType = 'string';
     protected $primaryKey = 'id';
+
+    public function barangkeluar()
+    {
+        return $this->hasMany(Barangkeluar::class, 'idbarang', 'id');
+    }
 }

@@ -3,7 +3,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-
+use App\Http\Controllers\Auth\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,12 +33,21 @@ Auth::routes();
 // })->name('index')->middleware('auth');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
-
-
-Route::resource('users', \App\Http\Controllers\UserController::class)->middleware('auth');
-Route::resource('barang', \App\Http\Controllers\BarangController::class)->middleware('auth');
-Route::resource('pegawai', \App\Http\Controllers\PegawaiController::class)->middleware('auth');
-Route::resource('barangkeluar', \App\Http\Controllers\BarangkeluarController::class)->middleware('auth');
-Route::resource('barangmasuk', \App\Http\Controllers\BarangmasukController::class)->middleware('auth');
-Route::resource('logbarang', \App\Http\Controllers\LogbarangController::class)->middleware('auth');
 Route::get('/filter', [App\Http\Controllers\BarangController::class, 'filter'])->name('filter');
+
+Route::middleware(['auth', 'level:admin'])->group(function () {
+    Route::resource('users', \App\Http\Controllers\UserController::class);
+    
+    Route::resource('pegawai', \App\Http\Controllers\PegawaiController::class);
+    Route::resource('barangkeluar', \App\Http\Controllers\BarangkeluarController::class);
+    Route::resource('barangmasuk', \App\Http\Controllers\BarangmasukController::class);
+    Route::resource('logbarang', \App\Http\Controllers\LogbarangController::class);
+    //semua route dalam grup ini hanya bisa diakses oleh admin
+});
+
+Route::middleware(['auth', 'level:reader'])->group(function () {
+    
+    //semua route dalam grup ini hanya bisa diakses oleh reader
+});
+Route::resource('barang', \App\Http\Controllers\BarangController::class)->middleware('auth');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

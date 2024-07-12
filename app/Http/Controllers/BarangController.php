@@ -8,6 +8,17 @@ use Illuminate\Support\Facades\Log;
 
 class BarangController extends Controller
 {
+
+    public function __construct()
+    {
+        // Apply 'auth' middleware to all methods
+        $this->middleware('auth');
+
+        // Apply 'level:admin' middleware to specific methods
+        $this->middleware('level:admin')->only(['create', 'store', 'edit', 'update', 'destroy']);
+    }
+
+
     /**
      * Display a listing of the resource.
      */
@@ -122,7 +133,8 @@ class BarangController extends Controller
      */
     public function show(string $id)
     {
-        $barang = Barang::find($id);
+        // $barang = Barang::find($id);
+        $barang = Barang::with('barangkeluar')->find($id);
 
         if (!$barang) {
             return redirect()->route('barang.index')->with('error_message', 'Barang dengan id ' . $id . ' tidak ditemukan');

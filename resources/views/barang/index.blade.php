@@ -9,20 +9,20 @@
 <div class="card">
 <div class="card-body">
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-info" data-toggle="modal" data-target="#filterModal">
+<!-- <button type="button" class="btn btn-info" data-toggle="modal" data-target="#filterModal">
 Filter
 </button>
-<hr>
+<hr> -->
 <!-- filter -->
-<a href="{{ route('barang.create') }}" class="btn btn-primary mb-2">
-Tambah
-</a>
+@if(auth()->user()->level === 'admin')
+<a href="{{ route('barang.create') }}" class="btn btn-primary">Tambah</a>
+@endif
+<hr>
 <table class="table table-hover table-bordered table-stripped" id="example2">
 <thead>
 <tr>
 <th>ID Barang</th>
 <th>Nama Barang</th>
-<th>Tahun</th>
 <th>Jumlah Barang</th>
 <th>Ruang</th>
 <th>Status</th>
@@ -35,18 +35,19 @@ Tambah
 <tr>
 <td>{{ $barangs->id }}</td>
 <td>{{ $barangs->namabarang }}</td>
-<td>{{ $barangs->tahun }}</td>
 <td>{{ $barangs->jumlahbarang }}</td>
 <td>{{ $barangs->ruang }}</td>
 <td>{{ $barangs->status }}</td>
 <td>{{$barangs->jenisbarang}}</td>
 <td>
+@if(auth()->user()->level === 'admin')
 <a href="{{ route('barang.edit', $barangs->id) }}" class="btn btn-primary btn-xs">
 Edit
 </a>
 <a href="{{ route('barang.destroy', $barangs->id) }}" onclick="notificationBeforeDelete(event, this)" class="btn btn-danger btn-xs">
 Delete
 </a>
+@endif
 <a href="{{ route('barang.show', $barangs->id) }}"
 class="btn btn-info btn-xs">
 Show</a>

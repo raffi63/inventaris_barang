@@ -62,6 +62,22 @@ $divisiList = ['all', 'tehnikal', 'training', 'finance', 'hr', 'operational'];
 </select>
 @error('divisi') <span class="text-danger">{{ $message }}</span> @enderror
 </div>
+<div class="form-group">
+<label for="exampleInputstatus">status</label>
+<select class="form-control @error('status') is-invalid @enderror"
+id="exampleInputstatus" name="status">
+@php
+$statusList = ['inactive', 'active'];
+@endphp
+@foreach ($statusList as $status)
+<option value="{{ $status }}"
+@if ($pegawai->status == $status || old('status') == $status) selected @endif>
+{{ ucfirst($status) }}
+</option>
+@endforeach
+</select>
+@error('status') <span class="text-danger">{{ $message }}</span> @enderror
+</div>
 </div>
 <div class="card-footer">
 <button type="submit" class="btn btn-primary">Simpan</button>
